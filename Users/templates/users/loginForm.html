@@ -1,0 +1,10 @@
+{% extends 'mainpage/base.html' %}
+{% block content %}
+    <form id="login_form" method="post" action="{{ where_to_go }}">
+    {% csrf_token %}
+        <input name='username'>
+        <input name='password'>
+
+        <button name='submit'>submit</button>
+    </form>
+{% endblock content %}
