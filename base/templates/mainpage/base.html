@@ -5,10 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-    <div id="navbar">
-        <a id="homepage" href="/">home</a>
-        <a id="login" href="/users/login">login</a>
-        <a id="register" href="/users/register">register</a>
+<div id="navbar">
+    <a id="homepage" href="/">home</a>
+
+    {% if user.is_authenticated %}
+        <a id="logout" href="/users/logout">logout</a>
+    {% else %}
+        <a id="register" href='/users/register'>register</a>
+        <a id="login" href='/users/login'>login</a>
+    {% endif %}
     </div>
     {% block content %}{% endblock content %}
 </body>

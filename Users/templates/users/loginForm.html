@@ -4,6 +4,11 @@
     {% csrf_token %}
         <input name='username'>
         <input name='password'>
+        {% if err %}
+            <div id="errors">
+                error
+            </div>
+        {% endif %}
 
         <button name='submit'>submit</button>
     </form>
