@@ -20,3 +20,18 @@ def reg_form(request):
         # if request.POST.get("submit"):
 
     return render(request=request, template_name='users/registerForm.html', context={})
+
+
+def login_form(request):
+    if request.method == "POST":
+        inf = request.POST
+        username = inf.get("username")
+        password = inf.get("password")
+        user = User.objects.get(username)
+        if user.check_password(password) :
+
+            pass
+        else:
+            pass
+
+        return render(request=request, template_name='users/loginForm.html', context={})
