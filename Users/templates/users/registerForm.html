@@ -1,7 +1,7 @@
 {% extends 'mainpage/base.html' %}
 {% block content %}
     <form id="register_form" method="post" action="#">
-    {% csrf_token %}
+        {% csrf_token %}
         <input name='first_name'>
 
         <input name='last_name'>
@@ -15,5 +15,15 @@
         <input name='password2'>
 
         <button name='submit'>submit</button>
+
+        {% if err == 'u' %}
+            <div id="errors">
+            نام کاربری شما در سیستم موجود است
+            </div>
+        {% elif err == 'p' %}
+            <div id="errors">
+            گذرواژه و تکرار گذرواژه یکسان نیستند
+            </div>
+        {% endif %}
     </form>
 {% endblock content %}

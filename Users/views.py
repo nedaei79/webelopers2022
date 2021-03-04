@@ -6,21 +6,26 @@ from django.shortcuts import render, redirect
 def reg_form(request):
     if request.method == "POST":
         inf = request.POST
-        # print("************************")
-        # print(inf)
-        # print(inf.get("username"))
-        user = User.objects.create_user(
-            first_name=inf.get("first_name"),
-            last_name=inf.get("last_name"),
-            username=inf.get("username"),
-            email=inf.get("email"),
-            password=inf.get("password1")
-        )
+        try:
+            user = User.objects.get(username=inf.get("username"))
+            return render(request=request, template_name='users/registerForm.html', context={'err': 'u'})
+        except User.DoesNotExist:
+            pass1 = inf.get("password1")
+            pass2 = inf.get("password2")
+            if pass1 != pass2:
+                return render(request=request, template_name='users/registerForm.html', context={'err': 'p'})
 
-        user.save()
-        # if request.POST.get("submit"):
+            user = User.objects.create_user(
+                first_name=inf.get("first_name"),
+                last_name=inf.get("last_name"),
+                username=inf.get("username"),
+                email=inf.get("email"),
+                password=inf.get("password1")
+            )
 
-    return render(request=request, template_name='users/registerForm.html', context={})
+            user.save()
+
+    return render(request=request, template_name='users/registerForm.html', context={'err': 'n'})
 
 
 def login_form(request):
