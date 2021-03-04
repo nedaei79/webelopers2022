@@ -5,9 +5,9 @@ from django.shortcuts import render
 def reg_form(request):
     if request.method == "POST":
         inf = request.POST
-        print("************************")
-        print(inf)
-        print(inf.get("username"))
+        # print("************************")
+        # print(inf)
+        # print(inf.get("username"))
         user = User.objects.create_user(
             first_name=inf.get("first_name"),
             last_name=inf.get("last_name"),
