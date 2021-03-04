@@ -1,0 +1,23 @@
+{% extends 'mainpage/base.html' %}
+{% block content %}
+    <form id="contact_us_form" method="post" action="#">
+    {% csrf_token %}
+        <label>
+            title
+            <input name='title' >
+        </label>
+        <label>
+            email
+            <input name='email'>
+        </label>
+        <label>
+            text
+            <textarea name='text'></textarea>
+        </label>
+
+        <button name='submit'>submit</button>
+
+    </form>
+
+
+{% endblock content %}
