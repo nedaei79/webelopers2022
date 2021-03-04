@@ -16,7 +16,7 @@ def reg_form(request):
             password=inf.get("password1")
         )
 
-        # User.save()
+        user.save()
         # if request.POST.get("submit"):
 
     return render(request=request, template_name='users/registerForm.html', context={})

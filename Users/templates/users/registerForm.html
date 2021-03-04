@@ -1,6 +1,6 @@
 {% extends 'mainpage/base.html' %}
 {% block content %}
-    <form id="register_form" method="post">
+    <form id="register_form" method="post" action="#">
     {% csrf_token %}
         <input name='first_name'>
 
