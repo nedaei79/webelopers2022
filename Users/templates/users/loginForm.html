@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'mainpage/base.html' %}
+{% block content %}
+    <form id="login_form" method="post" action="{{ where_to_go }}">
+    {% csrf_token %}
+        <input name='username'>
+        <input name='password'>
 
-</body>
-</html>
+        <button name='submit'>submit</button>
+    </form>
+{% endblock content %}
