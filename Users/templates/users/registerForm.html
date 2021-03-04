@@ -1,18 +1,19 @@
 {% extends 'mainpage/base.html' %}
 {% block content %}
     <form id="register_form" method="post">
-        <input name=”first_name”>
+    {% csrf_token %}
+        <input name='first_name'>
 
-        <input name=”last_name”>
+        <input name='last_name'>
 
-        <input name=”username”>
+        <input name='username'>
 
-        <input name=”email”>
+        <input name='email'>
 
-        <input name=”password1”>
+        <input name='password1'>
 
-        <input name=”password2”>
+        <input name='password2'>
 
-        <button name=”submit>submit</button>
+        <button name='submit'>submit</button>
     </form>
 {% endblock content %}

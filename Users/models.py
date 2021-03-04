@@ -1,3 +1,6 @@
 from django.db import models
+from django import forms
 
-# Create your models here.
+
+class reg_form(forms.Form):
+    first_name = forms.CharField()
