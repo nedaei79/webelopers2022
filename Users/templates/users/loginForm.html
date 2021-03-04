@@ -2,8 +2,14 @@
 {% block content %}
     <form id="login_form" method="post" action="#">
     {% csrf_token %}
-        <input name='username'>
-        <input name='password'>
+        <label>
+            username
+            <input name='username'>
+        </label>
+        <label>
+            password
+            <input name='password'>
+        </label>
 
 
         <button name='submit'>submit</button>

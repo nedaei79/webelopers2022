@@ -11,6 +11,7 @@
     <a id=”contact_us” href='/contact_us'>contact us</a>
     {% if user.is_authenticated %}
         <a id="logout" href="/users/logout">logout</a>
+        <a id="panel" href="/users/panel">panel</a>
     {% else %}
         <a id="register" href='/users/register'>register</a>
         <a id="login" href='/users/login'>login</a>

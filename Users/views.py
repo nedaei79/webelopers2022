@@ -46,3 +46,11 @@ def login_form(request):
 def logout_user(request):
     logout(request)
     return redirect('/')
+
+
+def user_panel(request):
+    return render(request=request, template_name='users/panel.html', context={})
+
+
+def make_product(request):
+    return render(request=request, template_name='users/make_product.html', context={})

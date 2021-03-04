@@ -1,0 +1,21 @@
+{% extends 'mainpage/base.html' %}
+{% block content %}
+
+    <form id=”make_product” method="post">
+        {% csrf_token %}
+        <label>
+            name
+            <input name='name'>
+        </label>
+        <label>
+            quantity
+            <input name='quantity'>
+        </label>
+        <label>
+            price
+            <input name='price'>
+        </label>
+        <button name='submit'>make</button>
+    </form>
+
+{% endblock content %}

@@ -2,17 +2,35 @@
 {% block content %}
     <form id="register_form" method="post" action="#">
         {% csrf_token %}
-        <input name='first_name'>
+        <label>
+            first name
+            <input name='first_name'>
+        </label>
 
-        <input name='last_name'>
+        <label>
+            last name
+            <input name='last_name'>
+        </label>
 
-        <input name='username'>
+        <label>
+            username
+            <input name='username'>
+        </label>
 
-        <input name='email'>
+        <label>
+            email
+            <input name='email'>
+        </label>
 
-        <input name='password1'>
+        <label>
+            password
+            <input name='password1'>
+        </label>
 
-        <input name='password2'>
+        <label>
+            repeat password
+            <input name='password2'>
+        </label>
 
         <button name='submit'>submit</button>
 
