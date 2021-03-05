@@ -10,7 +10,7 @@
     {% if condition == 'done' %}
         <div id='done'>با موفقیت فروشنده شدید</div>
     {% elif  condition == 'error' %}
-        <div id='error'>شما فروشنده هستید.</div>
+        <div id='error'>شما فروشنده هستید</div>
     {% endif %}
 
     {% if user.groups.all.0.name == "sellers" %}
