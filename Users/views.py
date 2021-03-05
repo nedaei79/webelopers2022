@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from Users.models import Product
+from Users.models import product
 
 
 def reg_form(request):
@@ -59,6 +59,6 @@ def make_product(request):
         name = inf.get('name')
         quantity = inf.get('quantity')
         price = inf.get('price')
-        product = Product(name=name, quantity=quantity, price=price)
-        product.save()
+        temp = product(name=name, quantity=quantity, price=price)
+        temp.save()
     return render(request=request, template_name='users/make_product.html', context={})
