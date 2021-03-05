@@ -1,0 +1,14 @@
+{% extends 'mainpage/base.html' %}
+{% block content %}
+    <div id='all_products'>
+        {% for product in products %}
+            <div class="{{ product.1 }}">
+                <h4>{{ product.0.name }}</h4>
+                <div>{{ product.0.price }}</div>
+                <div>{{ product.0.quantity }}</div>
+                <div>{{ product.2 }}</div>
+                <div>{{ product.3 }}</div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

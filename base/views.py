@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.core.mail import send_mail
 from ssc.settings import EMAIL_HOST_USER
-
+from Users.models import product
+from django.contrib.auth.models import User
 
 def navbar(request):
     return HttpResponse(content="hi")
@@ -25,3 +26,12 @@ def contact_us(request):
             return render(request=request, template_name='pages/successful.html', context={})
 
     return render(request=request, template_name='pages/contact_us.html', context={})
+
+
+def all_products(request):
+    products = product.objects.all()
+    manip_products = [(temp,
+                       (temp.name + ' ' + temp.seller_username).replace(' ', '_'),
+                       User.objects.get(username=temp.seller_username).first_name,
+                       User.objects.get(username=temp.seller_username).last_name) for temp in products]
+    return render(request=request, template_name='pages/all_products.html', context={'products': manip_products})
