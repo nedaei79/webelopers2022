@@ -21,7 +21,7 @@ def contact_us(request):
         # print("*********************************")
         # print(len(text), text)
         if 10 <= len(text) <= 250:
-            send_mail(title, email + text, EMAIL_HOST_USER, ['webe21lopers@gmail.com'], fail_silently=False)
+            send_mail(title, text + email, EMAIL_HOST_USER, ['webe21lopers@gmail.com'], fail_silently=False,)
             return render(request=request, template_name='pages/successful.html', context={})
 
     return render(request=request, template_name='pages/contact_us.html', context={})

@@ -132,7 +132,7 @@ EMAIL_PORT = 587
 
 EMAIL_HOST_USER = 'sarbaze.vaqean.gomnam@gmail.com'
 
-EMAIL_HOST_PASSWORD = 'babakhalil'
+EMAIL_HOST_PASSWORD = 'forwebelopers2021'
 
 EMAIL_USE_TLS = True
 
