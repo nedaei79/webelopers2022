@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User, Group
 from django.shortcuts import render, redirect
+from Users.models import product
 
 
 def reg_form(request):
@@ -22,6 +23,8 @@ def reg_form(request):
                 email=inf.get("email"),
                 password=inf.get("password1")
             )
+
+            user.save()
 
     return render(request=request, template_name='users/registerForm.html', context={'err': 'n'})
 
@@ -61,4 +64,11 @@ def user_panel(request):
 
 
 def make_product(request):
+    if request.method == 'POST':
+        inf = request.POST
+        name = inf.get('name')
+        quantity = inf.get('quantity')
+        price = inf.get('price')
+        temp = product(name=name, quantity=quantity, price=price)
+        temp.save()
     return render(request=request, template_name='users/make_product.html', context={})
