@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from Users.models import Product
 
 
 def reg_form(request):
@@ -53,4 +54,11 @@ def user_panel(request):
 
 
 def make_product(request):
+    if request.method == 'POST':
+        inf = request.POST
+        name = inf.get('name')
+        quantity = inf.get('quantity')
+        price = inf.get('price')
+        product = Product(name=name, quantity=quantity, price=price)
+        product.save()
     return render(request=request, template_name='users/make_product.html', context={})
