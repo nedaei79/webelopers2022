@@ -1,7 +1,7 @@
 {% extends 'mainpage/base.html' %}
 {% block content %}
 
-    <form id="make_product" method="post">
+    <form id="make_product" method="post" action="#">
         {% csrf_token %}
         <label>
             name
