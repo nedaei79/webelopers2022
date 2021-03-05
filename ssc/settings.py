@@ -120,3 +120,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# DataFlair
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_PORT = 587
+
+EMAIL_HOST_USER = 'sarbaze.vaqean.gomnam@gmail.com'
+
+EMAIL_HOST_PASSWORD = 'babakhalil'
+
+EMAIL_USE_TLS = True
+
+EMAIL_USE_SSL = False
