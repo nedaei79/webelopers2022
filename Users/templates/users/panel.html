@@ -1,9 +1,10 @@
 {% extends 'mainpage/base.html' %}
 {% block content %}
+    {% if user.groups.all.0.name == "sellers" %}
     <div>
         <a id='make_new_product' href='/users/panel/make_product'>محصول جدید</a>
     </div>
-
+    {% endif %}
     <form id=”become_seller” method="post" action="#">
             {% csrf_token %}
            <button id = 'submit' name="become_seller" value='seller'>become seller</button>
