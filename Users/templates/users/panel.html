@@ -1,7 +1,7 @@
 {% extends 'mainpage/base.html' %}
 {% block content %}
 
-    <form id='become_seller' method="post" action="#">
+    <form id='become_seller' method="post" action=".">
         {% csrf_token %}
         <button id='submit' name="become_seller" value='seller'>become seller</button>
 
