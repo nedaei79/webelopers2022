@@ -7,4 +7,5 @@ class product(models.Model):
     quantity = models.IntegerField()
     price = models.IntegerField()
 
-sellers, created = Group.objects.get_or_create(name='sellers')
+
+# sellers, created = Group.objects.get_or_create(name='sellers')

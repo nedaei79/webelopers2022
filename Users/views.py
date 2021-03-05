@@ -50,6 +50,7 @@ def logout_user(request):
 
 
 def user_panel(request):
+    sellers, created = Group.objects.get_or_create(name='sellers')
     if request.method == 'POST':
         inf = request.POST
         if inf.get('become_seller'):
