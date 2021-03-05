@@ -1,5 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.shortcuts import render, redirect
 
 
@@ -22,8 +22,6 @@ def reg_form(request):
                 email=inf.get("email"),
                 password=inf.get("password1")
             )
-
-            user.save()
 
     return render(request=request, template_name='users/registerForm.html', context={'err': 'n'})
 
@@ -49,7 +47,17 @@ def logout_user(request):
 
 
 def user_panel(request):
-    return render(request=request, template_name='users/panel.html', context={})
+    if request.method == 'POST':
+        inf = request.POST
+        if inf.get('become_seller'):
+
+            if request.user.groups.filter(name='sellers').exists():
+                return render(request=request, template_name='users/panel.html', context={'condition': 'error'})
+            seller_group = Group.objects.get(name='sellers')
+            seller_group.user_set.add(request.user)
+            return render(request=request, template_name='users/panel.html', context={'condition': 'done'})
+
+    return render(request=request, template_name='users/panel.html', context={'condition': 'null'})
 
 
 def make_product(request):
