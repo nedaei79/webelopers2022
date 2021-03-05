@@ -70,6 +70,12 @@ def make_product(request):
         name = inf.get('name')
         quantity = inf.get('quantity')
         price = inf.get('price')
-        temp = product(name=name, quantity=quantity, price=price)
+        temp = product(name=name, quantity=quantity, price=price, seller_username=request.user.username)
         temp.save()
     return render(request=request, template_name='users/make_product.html', context={})
+
+
+def my_products(request):
+    products = product.objects.filter(seller_username=request.user.username)
+    manip_products = [(temp, (temp.name + ' ' + temp.seller_username).replace(' ', '_')) for temp in products]
+    return render(request=request, template_name='users/my_products.html', context={'products': manip_products})

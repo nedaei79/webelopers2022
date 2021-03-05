@@ -7,5 +7,6 @@ urlpatterns = [
     path('login/', login_form),
     path('logout/', logout_user),
     path('panel/', user_panel),
-    path('panel/make_product/', make_product)
+    path('panel/make_product/', make_product),
+    path('panel/my_products', my_products),
 ]
